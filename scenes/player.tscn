@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://2c7ivlwkgvw2"]
+
+[ext_resource type="Script" uid="uid://cb32aakt0k3ox" path="res://scenes/player.gd" id="1_3vyb7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8vuu"]
+radius = 15.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_3vyb7")
+
+[node name="ShipBody" type="Line2D" parent="."]
+scale = Vector2(0.5, 0.5)
+points = PackedVector2Array(-32, 48, 0, -48, 32, 48, 0, 32)
+closed = true
+width = 5.0
+joint_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_u8vuu")
+
+[node name="Thruster" type="Node2D" parent="."]
+
+[node name="Left" type="Line2D" parent="Thruster"]
+points = PackedVector2Array(-8, 24, -8, 32)
+width = 1.0
+default_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+
+[node name="Center" type="Line2D" parent="Thruster"]
+position = Vector2(8, 0)
+points = PackedVector2Array(-8, 24, -8, 32)
+width = 1.0
+default_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+
+[node name="Right" type="Line2D" parent="Thruster"]
+position = Vector2(16, 0)
+points = PackedVector2Array(-8, 24, -8, 32)
+width = 1.0
+default_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Thruster"]
+visible = false
+position = Vector2(0, 24)
+amount = 50
+emission_shape = 4
+emission_points = PackedVector2Array(-10, -2, 0, -7, 10, -2)
+emission_colors = PackedColorArray()
+direction = Vector2(0, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 69.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color = Color(0.95077807, 0.35705596, 0.11414627, 1)
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(0, -24)

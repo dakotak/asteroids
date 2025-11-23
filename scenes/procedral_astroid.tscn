@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bde4gcflhd8nc"]
+
+[ext_resource type="Script" uid="uid://dhtvlpu0fc62j" path="res://scenes/procedral_astroid.gd" id="1_6a5gn"]
+
+[node name="ProcedralAstroid" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 11
+can_sleep = false
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_6a5gn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Body" type="Polygon2D" parent="."]
+visible = false
+
+[node name="Outline" type="Line2D" parent="."]
+closed = true
+width = 5.0
+joint_mode = 1
