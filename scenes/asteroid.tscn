@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dccafppnbmg6i"]
 
-[ext_resource type="Script" uid="uid://0mpitw0rr7he" path="res://scenes/astroid.gd" id="1_rbjxg"]
+[ext_resource type="Script" uid="uid://0mpitw0rr7he" path="res://scenes/asteroid.gd" id="1_rbjxg"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rbjxg"]
 friction = 0.0
@@ -8,7 +8,7 @@ friction = 0.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_kf1xi"]
 radius = 56.0
 
-[node name="Astroid" type="RigidBody2D"]
+[node name="asteroid" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_rbjxg")
 can_sleep = false
 linear_damp_mode = 1

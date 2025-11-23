@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://tpamh32hp7wn"]
+[gd_scene load_steps=2 format=3 uid="uid://bde4gcflhd8nc"]
 
-[ext_resource type="Script" path="res://scenes/procedral_astroid.gd" id="1_6a5gn"]
+[ext_resource type="Script" uid="uid://dhtvlpu0fc62j" path="res://scenes/procedral_asteroid.gd" id="1_6a5gn"]
 
-[node name="ProcedralAstroid" type="RigidBody2D"]
+[node name="Procedralasteroid" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 11
 can_sleep = false

@@ -43,11 +43,11 @@ func damage(amount : int) -> void:
 	if health <= 0:
 		_destroyed()
 
-var astroid_scene = preload("res://scenes/procedral_astroid.tscn")
+var asteroid_scene = preload("res://scenes/procedral_asteroid.tscn")
 func _destroyed() -> void:
 	destroyed.emit()
 	if radius > 20:
-		split_into_children(astroid_scene, radius/2)
+		split_into_children(asteroid_scene, radius/2)
 	queue_free()
 	
 func _ready() -> void:

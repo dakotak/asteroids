@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cin8c5njb18r5" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://2c7ivlwkgvw2" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://bde4gcflhd8nc" path="res://scenes/procedral_astroid.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bde4gcflhd8nc" path="res://scenes/procedral_asteroid.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lnu2h")
@@ -10,7 +10,7 @@ script = ExtResource("1_lnu2h")
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(632, 248)
 
-[node name="ProcedralAstroid" parent="." instance=ExtResource("4_lbhrr")]
+[node name="Procedralasteroid" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(872, 256)
 mass = 60.73239
 linear_velocity = Vector2(-6.0937643, -76.70932)
