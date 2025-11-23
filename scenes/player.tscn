@@ -1,9 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://2c7ivlwkgvw2"]
+[gd_scene load_steps=6 format=3 uid="uid://2c7ivlwkgvw2"]
 
 [ext_resource type="Script" uid="uid://cb32aakt0k3ox" path="res://scenes/player.gd" id="1_3vyb7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8vuu"]
 radius = 15.0
+
+[sub_resource type="Gradient" id="Gradient_3vyb7"]
+colors = PackedColorArray(0.9669233, 0.32634157, 0, 1, 0.89537317, 0, 0.12964636, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g2els"]
+gradient = SubResource("Gradient_3vyb7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3vyb7"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 7.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 20.0
+initial_velocity_max = 45.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 4.0
+color_ramp = SubResource("GradientTexture1D_g2els")
+hue_variation_min = -0.050000023
+hue_variation_max = 0.12999998
+collision_mode = 2
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -39,21 +61,15 @@ points = PackedVector2Array(-8, 24, -8, 32)
 width = 1.0
 default_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Thruster"]
-visible = false
+[node name="ThrusterParticles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 24)
-amount = 50
-emission_shape = 4
-emission_points = PackedVector2Array(-10, -2, 0, -7, 10, -2)
-emission_colors = PackedColorArray()
-direction = Vector2(0, 1)
-spread = 10.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 69.0
-initial_velocity_max = 100.0
-scale_amount_min = 3.0
-scale_amount_max = 3.0
-color = Color(0.95077807, 0.35705596, 0.11414627, 1)
+amount = 20
+lifetime = 0.25
+explosiveness = 0.19
+randomness = 0.94
+fixed_fps = 0
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_3vyb7")
 
 [node name="Muzzle" type="Node2D" parent="."]
 position = Vector2(0, -24)

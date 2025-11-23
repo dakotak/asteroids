@@ -8,6 +8,7 @@ extends CharacterBody2D
 var shoot_enabled : bool = true
 
 @onready var thruster: Node2D = $Thruster
+@onready var thruster_particles: GPUParticles2D = $ThrusterParticles
 @onready var muzzle: Node2D = $Muzzle
 @onready var shoot_timer: Timer = $ShootTimer
 
@@ -38,8 +39,10 @@ func _physics_process(delta: float) -> void:
 	if input_vector.y == 0:
 		velocity = velocity.move_toward(Vector2.ZERO, 3)
 		thruster.hide()
+		thruster_particles.emitting = false
 	else:
 		thruster.show()
+		thruster_particles.emitting = true
 		
 	move_and_slide()
 
