@@ -42,6 +42,16 @@ joint_mode = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_u8vuu")
 
+[node name="ThrusterParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 24)
+amount = 20
+lifetime = 0.25
+explosiveness = 0.19
+randomness = 0.94
+fixed_fps = 0
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_3vyb7")
+
 [node name="Thruster" type="Node2D" parent="."]
 
 [node name="Left" type="Line2D" parent="Thruster"]
@@ -60,16 +70,6 @@ position = Vector2(16, 0)
 points = PackedVector2Array(-8, 24, -8, 32)
 width = 1.0
 default_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
-
-[node name="ThrusterParticles" type="GPUParticles2D" parent="."]
-position = Vector2(0, 24)
-amount = 20
-lifetime = 0.25
-explosiveness = 0.19
-randomness = 0.94
-fixed_fps = 0
-draw_order = 0
-process_material = SubResource("ParticleProcessMaterial_3vyb7")
 
 [node name="Muzzle" type="Node2D" parent="."]
 position = Vector2(0, -24)
