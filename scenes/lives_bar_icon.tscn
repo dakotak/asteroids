@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dmek7ef8lo73y"]
+
+[node name="LivesBarIcon" type="Control"]
+custom_minimum_size = Vector2(26, 35)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShipBody" type="Line2D" parent="."]
+position = Vector2(13, 18)
+scale = Vector2(0.3, 0.3)
+points = PackedVector2Array(-32, 48, 0, -48, 32, 48, 0, 32)
+closed = true
+width = 5.0
+joint_mode = 2

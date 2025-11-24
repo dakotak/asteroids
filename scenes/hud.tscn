@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://8ubjs6qbd5k6"]
+
+[ext_resource type="Script" uid="uid://como6yayp3knf" path="res://scenes/hud.gd" id="1_ahhtf"]
+[ext_resource type="FontFile" uid="uid://bd2tsoysl8j2b" path="res://assets/fonts/Kenney Blocks.ttf" id="2_oo0fn"]
+[ext_resource type="PackedScene" uid="uid://dmek7ef8lo73y" path="res://scenes/lives_bar_icon.tscn" id="3_5ysmq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5ysmq"]
+font = ExtResource("2_oo0fn")
+font_size = 48
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahhtf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 262.0
+offset_bottom = 86.0
+
+[node name="Score" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SCORE: 0"
+label_settings = SubResource("LabelSettings_5ysmq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LivesBarIcon" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+layout_mode = 2
+
+[node name="LivesBarIcon2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+layout_mode = 2
+
+[node name="LivesBarIcon3" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+layout_mode = 2
+
+[node name="LivesBarIcon4" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+layout_mode = 2
+
+[node name="LivesBarIcon5" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+layout_mode = 2

@@ -1,18 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwyb7n4et0hhr"]
+[gd_scene load_steps=5 format=3 uid="uid://cwyb7n4et0hhr"]
 
 [ext_resource type="Script" uid="uid://cin8c5njb18r5" path="res://scenes/game.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://8ubjs6qbd5k6" path="res://scenes/hud.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://2c7ivlwkgvw2" path="res://scenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bde4gcflhd8nc" path="res://scenes/procedral_asteroid.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_lnu2h")
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("2_lbhrr")]
+
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(632, 248)
 
 [node name="Procedralasteroid" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(872, 256)
-mass = 60.73239
-linear_velocity = Vector2(-6.0937643, -76.70932)
-angular_velocity = -1.1285027
+mass = 64.63876
+linear_velocity = Vector2(28.781052, -124.62612)
+angular_velocity = 1.5622063
 radius = 100.0
