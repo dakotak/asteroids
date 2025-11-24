@@ -17,7 +17,9 @@ position = Vector2(632, 248)
 
 [node name="Procedralasteroid" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(872, 256)
-mass = 64.63876
-linear_velocity = Vector2(28.781052, -124.62612)
-angular_velocity = 1.5622063
+mass = 56.448307
+linear_velocity = Vector2(71.92091, -77.16836)
+angular_velocity = -1.9822559
 radius = 100.0
+
+[connection signal="died" from="Player" to="." method="_ship_killed"]

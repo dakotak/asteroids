@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var acceleration := 10.0
 @export var max_speed := 350.0
@@ -15,6 +16,7 @@ var shoot_enabled : bool = true
 var bullet_scene = preload("res://scenes/bullet.tscn")
 
 signal bullet_shot(bullet)
+signal died
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("shoot"):
@@ -63,3 +65,7 @@ func shoot_bullet() -> void:
 	b.rotation = rotation
 	bullet_shot.emit(b)
 	get_parent().add_child(b)
+
+
+func asteroid_collision(asteroid : Asteroid) -> void:
+	died.emit()

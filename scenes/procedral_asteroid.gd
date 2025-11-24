@@ -1,5 +1,6 @@
 @tool
 extends RigidBody2D
+class_name Asteroid
 
 @export_group("Shape")
 @export var seed: int = 0:
@@ -154,3 +155,10 @@ func split_into_children(scene_small: PackedScene, new_radius : float, count: in
 		a.radius = new_radius
 		a.regenerate()
 		get_parent().add_child(a)
+
+
+func _on_body_entered(body: Node) -> void:
+	if body is Player:
+		var player = body as Player
+		player.asteroid_collision(self)
+		

@@ -1,9 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://2c7ivlwkgvw2"]
+[gd_scene load_steps=5 format=3 uid="uid://2c7ivlwkgvw2"]
 
 [ext_resource type="Script" uid="uid://cb32aakt0k3ox" path="res://scenes/player.gd" id="1_3vyb7"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u8vuu"]
-radius = 15.0
 
 [sub_resource type="Gradient" id="Gradient_3vyb7"]
 colors = PackedColorArray(0.9669233, 0.32634157, 0, 1, 0.89537317, 0, 0.12964636, 1)
@@ -39,8 +36,8 @@ closed = true
 width = 5.0
 joint_mode = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_u8vuu")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -24, 16, 24, 0, 16, -16, 24)
 
 [node name="ThrusterParticles" type="GPUParticles2D" parent="."]
 position = Vector2(0, 24)
