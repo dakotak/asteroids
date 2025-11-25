@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwyb7n4et0hhr"]
+[gd_scene load_steps=6 format=3 uid="uid://cwyb7n4et0hhr"]
 
 [ext_resource type="Script" uid="uid://cin8c5njb18r5" path="res://scenes/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://8ubjs6qbd5k6" path="res://scenes/hud.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://2c7ivlwkgvw2" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dvmq2mk6ixy20" path="res://scenes/game_over_screen.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://bde4gcflhd8nc" path="res://scenes/procedral_asteroid.tscn" id="4_lbhrr"]
 
 [node name="Game" type="Node2D"]
@@ -11,6 +12,9 @@ script = ExtResource("1_lnu2h")
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource("2_lbhrr")]
+
+[node name="GameOverScreen" parent="UI" instance=ExtResource("3_iywne")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(632, 248)

@@ -29,20 +29,20 @@ layout_mode = 2
 text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_5ysmq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="LivesContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="LivesBarIcon" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+[node name="LivesBarIcon" parent="VBoxContainer/LivesContainer" instance=ExtResource("3_5ysmq")]
 layout_mode = 2
 
-[node name="LivesBarIcon2" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+[node name="LivesBarIcon2" parent="VBoxContainer/LivesContainer" instance=ExtResource("3_5ysmq")]
 layout_mode = 2
 
-[node name="LivesBarIcon3" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+[node name="LivesBarIcon3" parent="VBoxContainer/LivesContainer" instance=ExtResource("3_5ysmq")]
 layout_mode = 2
 
-[node name="LivesBarIcon4" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+[node name="LivesBarIcon4" parent="VBoxContainer/LivesContainer" instance=ExtResource("3_5ysmq")]
 layout_mode = 2
 
-[node name="LivesBarIcon5" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_5ysmq")]
+[node name="LivesBarIcon5" parent="VBoxContainer/LivesContainer" instance=ExtResource("3_5ysmq")]
 layout_mode = 2
