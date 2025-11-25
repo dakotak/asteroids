@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://2c7ivlwkgvw2"]
+[gd_scene load_steps=8 format=3 uid="uid://2c7ivlwkgvw2"]
 
 [ext_resource type="Script" uid="uid://cb32aakt0k3ox" path="res://scenes/player.gd" id="1_3vyb7"]
+[ext_resource type="AudioStream" uid="uid://bl7r07li37wce" path="res://assets/sounds/shoot.mp3" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://dmeo5grw0opbb" path="res://assets/sounds/thruster.mp3" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://can3atsfp1ybu" path="res://assets/sounds/explosion-ship.mp3" id="4_dqkch"]
 
 [sub_resource type="Gradient" id="Gradient_3vyb7"]
 colors = PackedColorArray(0.9669233, 0.32634157, 0, 1, 0.89537317, 0, 0.12964636, 1)
@@ -70,3 +73,13 @@ default_color = Color(0.5132329, 0.5132329, 0.5132329, 1)
 
 [node name="Muzzle" type="Node2D" parent="."]
 position = Vector2(0, -24)
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_g2els")
+
+[node name="ThrustSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qhqgy")
+parameters/looping = true
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dqkch")

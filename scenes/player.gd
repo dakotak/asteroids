@@ -12,6 +12,7 @@ var shoot_enabled : bool = true
 @onready var thruster_particles: GPUParticles2D = $ThrusterParticles
 @onready var muzzle: Node2D = $Muzzle
 @onready var shoot_timer: Timer = $ShootTimer
+@onready var thrust_sound: AudioStreamPlayer2D = $ThrustSound
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 
@@ -42,7 +43,10 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, 3)
 		thruster.hide()
 		thruster_particles.emitting = false
+		thrust_sound.playing = false
 	else:
+		if !thrust_sound.playing:
+			thrust_sound.playing = true
 		thruster.show()
 		thruster_particles.emitting = true
 		
@@ -60,6 +64,7 @@ func _physics_process(delta: float) -> void:
 
 
 func shoot_bullet() -> void:
+	$ShootSound.play()
 	var b : Area2D = bullet_scene.instantiate()
 	b.global_position = muzzle.global_position
 	b.rotation = rotation
@@ -68,4 +73,5 @@ func shoot_bullet() -> void:
 
 
 func asteroid_collision(asteroid : Asteroid) -> void:
+	$DeathSound.play()
 	died.emit()
