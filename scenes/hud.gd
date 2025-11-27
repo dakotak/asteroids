@@ -1,11 +1,13 @@
 extends Control
 
-@onready var score: Label = $Score :
-	set(val):
-		score.text = "SCORE: " + str(val)
-		
-var ship_life_icon_scene := preload("res://scenes/lives_bar_icon.tscn")
+
+@onready var score_label: Label = %ScoreLabel
 @onready var lives_container: HBoxContainer = $VBoxContainer/LivesContainer
+var ship_life_icon_scene := preload("res://scenes/lives_bar_icon.tscn")
+
+var score : int :
+	set(val):
+		score_label.text = "SCORE: " + str(val)
 
 var lives : int :
 	set(val):

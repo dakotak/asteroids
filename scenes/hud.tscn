@@ -24,7 +24,8 @@ offset_top = 10.0
 offset_right = 262.0
 offset_bottom = 86.0
 
-[node name="Score" type="Label" parent="VBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "SCORE: 0"
 label_settings = SubResource("LabelSettings_5ysmq")

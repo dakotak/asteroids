@@ -23,7 +23,7 @@ class_name Asteroid
 	set(v):
 		noise_bias = clampf(v, 0.0, 1.0)
 		_generate_in_editor()
-		
+
 @export_group("Movement")
 @export var min_speed := 60.0
 @export var max_speed := 140.0
@@ -37,7 +37,7 @@ class_name Asteroid
 @export var max_health := 100
 var health : int
 
-signal destroyed
+signal destroyed(asteroid : Asteroid)
 
 func damage(amount : int) -> void:
 	health -= amount
@@ -45,8 +45,10 @@ func damage(amount : int) -> void:
 		_destroyed()
 
 var asteroid_scene = preload("res://scenes/procedral_asteroid.tscn")
+
 func _destroyed() -> void:
-	destroyed.emit()
+	print_debug("i am a dead asteroid")
+	destroyed.emit(self)
 	if radius > 20:
 		split_into_children(asteroid_scene, radius/2)
 	queue_free()
@@ -57,6 +59,9 @@ func _ready() -> void:
 	var dir := Vector2.RIGHT.rotated(randf() * TAU)
 	linear_velocity = dir * randf_range(min_speed, max_speed)
 	angular_velocity = randf_range(-spin, spin)
+	# Connect the destroyed signal to the global game manger
+	# This does feel hacky AF
+	destroyed.connect(GameManager.asteroid_destroid)
 
 func _physics_process(_delta: float) -> void:
 	# Wrapp around the screen
@@ -139,11 +144,18 @@ func _polygon_area(p: PackedVector2Array) -> float:
 		area += p[i].x * p[j].y - p[j].x * p[i].y
 	return area * 0.5
 
+func _on_body_entered(body: Node) -> void:
+	if body is Player:
+		var player = body as Player
+		player.asteroid_collision(self)
+
+
 # --- Public API ---
 
 func regenerate(new_seed: int = 0) -> void:
 	seed = new_seed
 	_generate(false)
+
 
 func split_into_children(scene_small: PackedScene, new_radius : float, count: int = 2) -> void:
 	# example: call on death; spawns smaller asteroids inheriting velocity
@@ -155,10 +167,3 @@ func split_into_children(scene_small: PackedScene, new_radius : float, count: in
 		a.radius = new_radius
 		a.regenerate()
 		get_parent().add_child(a)
-
-
-func _on_body_entered(body: Node) -> void:
-	if body is Player:
-		var player = body as Player
-		player.asteroid_collision(self)
-		

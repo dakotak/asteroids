@@ -16,6 +16,10 @@ var lives : int :
 
 func _ready() -> void:
 	lives = starting_lives
+	GameManager.score_changed.connect(_score_changed)
+	
+func _score_changed(new_score : int) -> void:
+	hud.score = new_score
 
 
 func start_game() -> void:
